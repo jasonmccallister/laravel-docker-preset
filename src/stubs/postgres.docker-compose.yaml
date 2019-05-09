@@ -1,0 +1,41 @@
+version: '3.6'
+services:
+  app:
+    image: jasonmccallister/laravel-docker-preset
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    env_file: .env
+    volumes:
+      - .:/var/www/html:cached
+      # uncomment if using laravel passport
+      # - ./storage/oauth-private.key:/var/www/html/storage/oauth-private.key
+      # - ./storage/oauth-public.key:/var/www/html/storage/oauth-public.key
+  db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_USER: homestead
+      POSTGRES_PASSWORD: secret
+    ports:
+      - 5432:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  queue:
+    image: jasonmccallister/laravel-docker-preset
+    command: ["php", "artisan", "queue:work", "--tries=1"]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html:cached
+      # uncomment if using laravel passport
+      # - ./storage/oauth-private.key:/var/www/html/storage/oauth-private.key
+      # - ./storage/oauth-public.key:/var/www/html/storage/oauth-public.key
+  redis:
+    image: redis
+    ports:
+     - 6379:6379
+volumes:
+  db_data:

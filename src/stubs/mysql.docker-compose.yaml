@@ -13,15 +13,17 @@ services:
       # uncomment if using laravel passport
       # - ./storage/oauth-private.key:/var/www/html/storage/oauth-private.key
       # - ./storage/oauth-public.key:/var/www/html/storage/oauth-public.key
-  postgres:
-    image: postgres:11-alpine
+  db:
+    image: mysql:5.7
     environment:
-      POSTGRES_USER: homestead
-      POSTGRES_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
     ports:
-      - 5432:5432
+      - 3306:3306
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/mysql
   queue:
     image: jasonmccallister/laravel-docker-preset
     command: ["php", "artisan", "queue:work", "--tries=1"]

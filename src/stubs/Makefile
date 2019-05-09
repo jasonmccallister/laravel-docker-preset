@@ -4,7 +4,7 @@ IMAGE ?= jasonmccallister
 TAG ?= local
 
 build:
-	docker build -t $(IMAGE):$(TAG)
+	docker build -t $(IMAGE):$(TAG) .
 composer:
 	docker run --interactive --tty \
 	--volume $(PWD):/app \
@@ -16,6 +16,8 @@ composer:
 	composer install --ignore-platform-reqs --no-interaction --no-plugins --prefer-dist
 down:
 	docker-compose down
+logs:
+	docker-compose logs -f
 migrate:
 	docker-compose exec app php artisan migrate
 migrate-fresh:
