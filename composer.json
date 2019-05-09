@@ -1,0 +1,24 @@
+{
+    "name": "jasonmccallister/laravel-docker-preset",
+    "description": "My default setup for shipping Laravel projects on Docker",
+    "require": {
+        "laravel/framework": "^5.8"
+    },
+    "license": "MIT",
+    "authors": [{
+        "name": "Jason McCallister",
+        "email": "jason@mccallister.io"
+    }],
+    "autoload": {
+        "psr-4": {
+            "JasonMcCallister\\DockerPreset\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JasonMcCallister\\DockerPreset\\DockerPresetServiceProvider"
+            ]
+        }
+    }
+}
