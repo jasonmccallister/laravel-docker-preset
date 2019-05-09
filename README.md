@@ -1,13 +1,11 @@
 # Presets for shipping Laravel on Docker
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jasonmccallister/laravel-docker-preset.svg?style=flat-square)](https://packagist.org/packages/jasonmccallister/laravel-docker-preset)
-[![Build Status](https://img.shields.io/travis/jasonmccallister/laravel-docker-preset/master.svg?style=flat-square)](https://travis-ci.org/jasonmccallister/laravel-docker-preset)
-[![Quality Score](https://img.shields.io/scrutinizer/g/jasonmccallister/laravel-docker-preset.svg?style=flat-square)](https://scrutinizer-ci.com/g/jasonmccallister/laravel-docker-preset)
 [![Total Downloads](https://img.shields.io/packagist/dt/jasonmccallister/laravel-docker-preset.svg?style=flat-square)](https://packagist.org/packages/jasonmccallister/laravel-docker-preset)
 
-Quickly scaffold new projects for shipping Laravel apps with Docker easily! The preset will give you a `Dockerfile`, `docker-compose.yaml`, `.dockerignore`, and `Makefile` with helpful commands to start developing and shipping your application in Docker.
+![Laravel Docker Preset](./docker-preset.gif)
 
-![Laravel Docker Preset](./laravel-docker-preset.gif)
+Quickly scaffold new projects for shipping Laravel apps with Docker easily! The preset will give you a `Dockerfile`, `docker-compose.yaml`, `.dockerignore`, and `Makefile` with helpful commands to start developing and shipping your application in Docker.
 
 These are tips that I have learned shipping multiple Laravel applications (Amazon ECS, Google Cloud, and Docker Cloud (R.I.P)) over the years in one place.
 
